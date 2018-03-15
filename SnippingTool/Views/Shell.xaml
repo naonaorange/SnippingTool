@@ -9,6 +9,7 @@
         prism:ViewModelLocator.AutoWireViewModel="True"
         Title="SnippingTool" Height="100" Width="200">
     <Grid>
-        
+        <Button Command ="{Binding CaptureCommand}" Content="Capture" HorizontalAlignment="Left" VerticalAlignment="Top" Width="75" Margin="10,10,0,0"/>
+
     </Grid>
 </Window>

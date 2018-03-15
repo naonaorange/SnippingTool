@@ -11,7 +11,14 @@ namespace SnippingTool.ViewModels
 {
     class ShellViewModel : BindableBase
     {
+        public DelegateCommand CaptureCommand { get; }
+
         public ShellViewModel()
+        {
+            CaptureCommand = new DelegateCommand(Capture);
+        }
+
+        public void Capture()
         {
 
         }
