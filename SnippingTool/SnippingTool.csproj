@@ -92,7 +92,6 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="ViewModels\CaptureScreenViewModel.cs" />
     <Compile Include="ViewModels\ShellViewModel.cs" />
     <Compile Include="Views\CaptureScreen.xaml.cs">
       <DependentUpon>CaptureScreen.xaml</DependentUpon>
