@@ -7,9 +7,10 @@
         mc:Ignorable="d"
         xmlns:prism="http://prismlibrary.com/"
         prism:ViewModelLocator.AutoWireViewModel="True"
-        Title="SnippingTool" Height="100" Width="200">
+        Title="SnippingTool" Height="300" Width="300">
     <Grid>
         <Button Command ="{Binding CaptureCommand}" Content="Capture" HorizontalAlignment="Left" VerticalAlignment="Top" Width="75" Margin="10,10,0,0"/>
+        <Image Source="{Binding Bmp}" HorizontalAlignment="Left" Height="224" VerticalAlignment="Top" Width="272" Margin="10,35,0,0"/>
 
     </Grid>
 </Window>

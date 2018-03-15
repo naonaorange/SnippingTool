@@ -8,13 +8,20 @@ using SnippingTool.Views;
 
 using Prism.Commands;
 using Prism.Mvvm;
-using Prism.Regions;
+using System.Drawing;
+using System.Windows.Media.Imaging;
 
 namespace SnippingTool.ViewModels
 {
     class ShellViewModel : BindableBase
     {
-        public IRegionManager RegionManager { get; set; }
+        private Bitmap b;
+        private Bitmap bmp;
+        public Bitmap Bmp
+        {
+            get { return bmp; }
+            set { SetProperty(ref bmp, value); }
+        }
 
         public DelegateCommand CaptureCommand { get; }
 
@@ -25,7 +32,7 @@ namespace SnippingTool.ViewModels
 
         public void Capture()
         {
-            var childWindow = new CaptureScreen();
+            var childWindow = new CaptureScreen(out b);
             childWindow.Show();
         }
     }

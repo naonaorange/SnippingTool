@@ -29,6 +29,7 @@ namespace SnippingTool.Views
             InitializeComponent();
         }
 
+
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
             // プライマリスクリーンサイズの取得
@@ -42,7 +43,6 @@ namespace SnippingTool.Views
 
             // ジオメトリサイズの設定
             this.ScreenArea.Geometry1 = new RectangleGeometry(new Rect(0, 0, screen.Bounds.Width, screen.Bounds.Height));
-            
         }
 
         private void DrawingPath_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
