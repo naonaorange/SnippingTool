@@ -15,7 +15,6 @@ namespace SnippingTool.ViewModels
 {
     class ShellViewModel : BindableBase
     {
-        private Bitmap b;
         private Bitmap bmp;
         public Bitmap Bmp
         {
@@ -32,7 +31,7 @@ namespace SnippingTool.ViewModels
 
         public void Capture()
         {
-            var childWindow = new CaptureScreen(out b);
+            var childWindow = new CaptureScreen();
             childWindow.Show();
         }
     }

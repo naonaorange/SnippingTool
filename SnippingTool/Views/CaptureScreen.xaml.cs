@@ -131,7 +131,7 @@ namespace SnippingTool.Views
 
                 // イメージの保存
                 string folder = System.IO.Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location);
-                bmp.Save(System.IO.Path.ChangeExtension(System.IO.Path.Combine(folder, "image"), "png"), System.Drawing.Imaging.ImageFormat.Png);
+                bmp.Save(System.IO.Path.ChangeExtension(System.IO.Path.Combine(folder, "capture"), "png"), System.Drawing.Imaging.ImageFormat.Png);
             }
         }
     }
