@@ -10,14 +10,14 @@ using Prism.Commands;
 using Prism.Mvvm;
 using System.Drawing;
 using System.Windows.Media.Imaging;
+using System.IO;
 
 namespace SnippingTool.ViewModels
 {
     class ShellViewModel : BindableBase
     {
-        private BitmapImage tmpBmp;
-        private BitmapImage bmp;
-        public BitmapImage Bmp
+        private BitmapSource bmp;
+        public BitmapSource Bmp
         {
             get { return bmp; }
             set { SetProperty(ref bmp, value); }
@@ -32,19 +32,19 @@ namespace SnippingTool.ViewModels
 
         public void Capture()
         {
-            
             var childWindow = new CaptureScreen();
             childWindow.ShowDialog();
             
-            tmpBmp = new BitmapImage();
-            tmpBmp.BeginInit();
             string fullPath = System.IO.Path.GetFullPath("capture.png");
-            tmpBmp.UriSource = new Uri(fullPath);
-            tmpBmp.EndInit();
 
-            Bmp = tmpBmp;
+            using (var fs = new FileStream(fullPath, FileMode.Open, FileAccess.Read))
+            {
+                // FileStreamからBitmapDecoderを作成します。
+                // BitmapCacheOptionをOnLoadにすることで画像データをメモリにキャッシュします。
+                var decoder = BitmapDecoder.Create(fs, BitmapCreateOptions.None, BitmapCacheOption.OnLoad);
 
-
+                Bmp = decoder.Frames[0];
+            }
 
         }
     }
