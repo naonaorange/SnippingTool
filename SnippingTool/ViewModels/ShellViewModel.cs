@@ -15,8 +15,9 @@ namespace SnippingTool.ViewModels
 {
     class ShellViewModel : BindableBase
     {
-        private Bitmap bmp;
-        public Bitmap Bmp
+        private BitmapImage tmpBmp;
+        private BitmapImage bmp;
+        public BitmapImage Bmp
         {
             get { return bmp; }
             set { SetProperty(ref bmp, value); }
@@ -31,8 +32,20 @@ namespace SnippingTool.ViewModels
 
         public void Capture()
         {
+            
             var childWindow = new CaptureScreen();
-            childWindow.Show();
+            childWindow.ShowDialog();
+            
+            tmpBmp = new BitmapImage();
+            tmpBmp.BeginInit();
+            string fullPath = System.IO.Path.GetFullPath("capture.png");
+            tmpBmp.UriSource = new Uri(fullPath);
+            tmpBmp.EndInit();
+
+            Bmp = tmpBmp;
+
+
+
         }
     }
 }
